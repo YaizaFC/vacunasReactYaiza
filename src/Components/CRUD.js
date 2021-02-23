@@ -234,13 +234,25 @@ function CRUD() {
         <ModalHeader>Editar Vacunas</ModalHeader>
         <ModalBody>
           <div className="form-group">
-            <label>Nombre: </label>
+          <label>Comunidad Autónoma: </label>
             <br />
-            <input type="text" className="form-control" name="firstName" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.firstName} />
+            <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} />
             <br />
-            <label>Lanzamiento: </label>
+            <label>Dosis Entregadas - Pfizer</label>
             <br />
-            <input type="text" className="form-control" name="lastName" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.lastName} />
+            <input type="text" className="form-control" name="dosisPfizer" onChange={handleChange} />
+            <br />
+            <label>Dosis Entregadas - Moderna</label>
+            <br />
+            <input type="text" className="form-control" name="dosisModerna" onChange={handleChange} />
+            <br />
+            <label>Dosis Administradas</label>
+            <br />
+            <input type="text" className="form-control" name="dosisAdministradas" onChange={handleChange} />
+            <br />
+            <label>Número de personas con pauta completa</label>
+            <br />
+            <input type="text" className="form-control" name="personasCompleta" onChange={handleChange} />
             <br />
 
           </div>
@@ -253,7 +265,7 @@ function CRUD() {
 
       <Modal isOpen={modalEliminar}>
         <ModalBody>
-          ¿Estás seguro que deseas eliminar al Usuario {frameworkSeleccionado && frameworkSeleccionado.nombre}?
+          ¿Estás seguro que deseas eliminar las vacunas de la Comunidad Autónoma {frameworkSeleccionado.comunidadAutonoma}?
           </ModalBody>
         <ModalFooter>
           <button className="btn btn-danger" onClick={() => peticionDelete()}>
