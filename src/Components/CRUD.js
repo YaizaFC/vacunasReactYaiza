@@ -145,9 +145,9 @@ function CRUD() {
   return (
     <div style={{ textAlign: 'center' }}>
       <br />
-      <button className="btn btn-success" onClick={() => abrirCerrarModalInsertar()}>Insertar</button>
+      <button className="btn btn-success btnInsertar" onClick={() => abrirCerrarModalInsertar()}>Insertar</button>
       <br /><br />
-      <table className="table table-striped">
+      <table className="table table-striped tabla">
         <thead>
           <tr>
             <th>Comunidad Autónoma</th>
@@ -164,17 +164,6 @@ function CRUD() {
           {console.log(data[0])}
           {data.map(framework => (
             <tr key={framework.id}>
-              {/*console.log(framework.first_name)*/}
-              {/* el nombre de los campos que vienen a continuacion tienes que ser
-              los que nos devuelve el JSON. Fijate en como se llaman cuando te devuelve 
-              haciendo una peticion get por la url http://localhost:4008/users/
-              [{"id":1,"firstName":"juan","lastName":"Perez"},
-              {"id":2,"firstName":"Ana","lastName":"Soria"},
-              {"id":3,"firstName":"Luis","lastName":"Rodrigo"},
-              {"id":4,"firstName":"Raquel","lastName":"Segovia"}]
-  
-              
-              */}
               <td>{framework.comunidadAutonoma}</td>
               <td>{framework.dosisPfizer}</td>
               <td>{framework.dosisModerna}</td>
@@ -184,8 +173,8 @@ function CRUD() {
               
 
               <td>
-                <button className="btn btn-primary" onClick={() => seleccionarFramework(framework, "Editar")}>Editar</button>
-                <button className="btn btn-danger" onClick={() => seleccionarFramework(framework, "Eliminar")}>Eliminar</button>
+                <button className="btn btn-primary btnEditar" onClick={() => seleccionarFramework(framework, "Editar")}>Editar</button>
+                <button className="btn btn-danger btnEliminar" onClick={() => seleccionarFramework(framework, "Eliminar")}>Eliminar</button>
               </td>
             </tr>
           ))}
@@ -231,28 +220,28 @@ function CRUD() {
       </Modal>
 
       <Modal isOpen={modalEditar}>
-        <ModalHeader>Editar Vacunas</ModalHeader>
+        <ModalHeader>Editar Vacunas: {frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma}</ModalHeader>
         <ModalBody>
           <div className="form-group">
           <label>Comunidad Autónoma: </label>
             <br />
-            <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} />
+            <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma}/>
             <br />
             <label>Dosis Entregadas - Pfizer</label>
             <br />
-            <input type="text" className="form-control" name="dosisPfizer" onChange={handleChange} />
+            <input type="text" className="form-control" name="dosisPfizer" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisPfizer}/>
             <br />
             <label>Dosis Entregadas - Moderna</label>
             <br />
-            <input type="text" className="form-control" name="dosisModerna" onChange={handleChange} />
+            <input type="text" className="form-control" name="dosisModerna" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisModerna}/>
             <br />
             <label>Dosis Administradas</label>
             <br />
-            <input type="text" className="form-control" name="dosisAdministradas" onChange={handleChange} />
+            <input type="text" className="form-control" name="dosisAdministradas" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisAdministradas}/>
             <br />
             <label>Número de personas con pauta completa</label>
             <br />
-            <input type="text" className="form-control" name="personasCompleta" onChange={handleChange} />
+            <input type="text" className="form-control" name="personasCompleta" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.personasCompleta}/>
             <br />
 
           </div>
@@ -265,7 +254,7 @@ function CRUD() {
 
       <Modal isOpen={modalEliminar}>
         <ModalBody>
-          ¿Estás seguro que deseas eliminar las vacunas de la Comunidad Autónoma {frameworkSeleccionado.comunidadAutonoma}?
+          ¿Estás seguro que deseas eliminar las vacunas de la Comunidad Autónoma: {frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma}?
           </ModalBody>
         <ModalFooter>
           <button className="btn btn-danger" onClick={() => peticionDelete()}>

@@ -9,25 +9,29 @@ function Datos_globales() {
     const [data, setData] = useState([]);
     const [contador, setContador] = useState(0);
     const [vacunasPFizerTotales, setVacunasPFizerTotales] = useState(0);
-    const [vacunasModernaTotales, setVacunasModernaTotales] = useState(0);
+    const [dosisEntregadas, setDosisEntregadas] = useState(0);
+    const [dosisAdministradas, setDosisAdministradas] = useState(0);
+    const [pautaCompleta, setPautaCompleta] = useState(0);
     const peticionGet = async () => {
         var vacunasPFizer = 0;
         var vacunasModerna = 0;
+        var dosisAdm = 0;
+        var pautaComp = 0;
         await axios.get(baseUrl)
             .then(response => {
                 setData(response.data);
                 response.data.forEach(vacuna => {
-                    console.log(vacuna.dosisPfizer);
                     vacunasPFizer = vacunasPFizer + vacuna.dosisPfizer; //Contador de todas las vacunas Pfizer
                     vacunasModerna = vacunasModerna + vacuna.dosisModerna; //Contador de todas las vacunas Moderna
+                    dosisAdm = dosisAdm + vacuna.dosisAdministradas;
+                    pautaComp=pautaComp+vacuna.personasCompleta;
+
                 });
 
-
-                console.log(vacunasPFizer);
-                console.log(vacunasModerna);
-
-                setVacunasPFizerTotales(vacunasPFizer);
-                setVacunasModernaTotales(vacunasModerna);
+                //setVacunasPFizerTotales(vacunasPFizer);
+                setDosisEntregadas(vacunasModerna+vacunasPFizer);
+                setDosisAdministradas(dosisAdm);
+                setPautaCompleta(pautaComp);
 
             }).catch(error => {
                 console.log(error);
@@ -45,28 +49,32 @@ function Datos_globales() {
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div className="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="10%" y="50%" fill="#eceeef" dy=".3em">Vacunas Totales Entregadas</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#C5FFDA" /><text x="10%" y="50%" fill="#000000" dy=".3em">Vacunas Totales Entregadas en CCAA</text></svg>
 
                             <div class="card-body">
-                                <p class="card-text">{vacunasPFizerTotales + vacunasModernaTotales}</p>
+                                <p class="card-text grande">{dosisEntregadas}</p>
                             </div>
                         </div>
                     </div>
                     <div className="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="10%" y="50%" fill="#eceeef" dy=".3em">Vacunas Totales Entregadas</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#C5FFDA" /><text x="30%" y="50%" fill="#000000" dy=".3em">Dosis Administradas</text></svg>
 
                             <div class="card-body">
-                                <p class="card-text">{vacunasPFizerTotales + vacunasModernaTotales}</p>
+                                <p class="card-text">{dosisAdministradas}</p>
+                                <hr/>
+                                <p class="card-text">{Math.round((dosisAdministradas*100)/dosisEntregadas)}% dosis recibidas</p>
                             </div>
                         </div>
                     </div>
                     <div className="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="10%" y="50%" fill="#eceeef" dy=".3em">Vacunas Totales Entregadas</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#C5FFDA" /><text x="15%" y="50%" fill="#000000" dy=".3em">Nº de personas con pauta Completa</text></svg>
 
                             <div class="card-body">
-                                <p class="card-text">{vacunasPFizerTotales + vacunasModernaTotales}</p>
+                                <p class="card-text">{pautaCompleta}</p>
+                                <hr/>
+                                <p class="card-text">{Math.round((pautaCompleta*100)/dosisAdministradas)}% dosis administradas</p>
                             </div>
                         </div>
                     </div>

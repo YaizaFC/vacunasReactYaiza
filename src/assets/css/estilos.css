@@ -7,3 +7,45 @@
     font-weight: bold;
     color: rgb(26, 151, 53);
 }
+
+.grande{
+    padding: 30px;
+}
+
+.tabla th{
+    width: 20px;
+}
+
+button{
+    font-size: 14px !important;
+}
+
+.titulo{
+    color: black;
+}
+
+.col{
+    margin-bottom: 60px !important;
+}
+
+.col:hover div.card-body{
+    box-shadow: 3px 3px 3px 3px rgba(8, 59, 19, 0.425);
+}
+
+.btnEliminar{
+    background-color: rgb(26, 151, 93);
+    border: none;
+}
+
+.btnEliminar:hover{
+    background-color: rgb(11, 87, 51);
+}
+
+.btnEliminar:focus{
+    background-color: rgb(11, 87, 51);
+    border: 3px solid rgba(11, 87, 51, 0.555);
+}
+
+.bg-danger{
+    background-color: rgb(26, 151, 93) !important;
+}
