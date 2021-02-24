@@ -4,9 +4,17 @@ import React from 'react';
 import imagenes from'../assets/imagenes'
 const inicio = () => {
     return(
-        <div className="App">
-            <br/>
-            <img src={imagenes.img3} alt="img usuarios" width="800" height="400"></img>
+        <div className="App bg-home">
+            <h1>GIV COVID-19</h1>
+            <h1>Gestión integral de la vacunacion COVID-19</h1>
+            <hr class="hrHome" />
+            <h3>Informe de actividad</h3>
+
+            <p>Informe para comunicación</p>
+
+            <p class="datos">Yaiza Fritis Calvo - Despliegue de Aplicaciones Web - 2020/2021</p>
+
+            <img src={imagenes.img8} alt="Gobierno de españa - Ministerio de salud" class="right imgGobierno abajo" />
         </div>
     )
 }

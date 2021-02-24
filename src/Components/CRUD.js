@@ -149,7 +149,6 @@ function CRUD() {
       <h1 class="titulo1 sepTop">Datos por CC.AA y tipo de vacuna</h1>
       <img src={imagenes.img4} alt="imagen virus" class="imgVirus" ></img>
       <hr/>
-      <br />
       <button className="btn btn-success btnInsertar" onClick={() => abrirCerrarModalInsertar()}>Insertar</button>
       <br /><br />
       <table className="table table-striped tabla tablaCrud">  

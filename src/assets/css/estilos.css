@@ -1,6 +1,31 @@
 
 body{
     background-color: #f8f9fa !important;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.bg-home{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+    padding: 100px !important;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url(../img/bg-home.jpg);;
+    /*background-image: url("../img/bg-home.jpg");
+    background-color: rgba(0,0,0,0.8);*/
+	text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+    color: white !important;
+}
+
+.hrHome{
+    border-color: white;
+    width: 800px;
 }
 
 .dosisEntregadasPfizer{
@@ -11,6 +36,14 @@ body{
 .dosisEntregadasModerna{
     font-weight: bold;
     color: rgb(26, 151, 53);
+}
+
+.navNombre{
+    color: white;
+}
+
+.datos{
+    margin-bottom: 150px;
 }
 
 .noDatos{
@@ -26,10 +59,10 @@ body{
 }
 
 .tabla{
-    width: 90% !important;
+    width: 95% !important;
     margin: auto !important;
     padding: 5px !important;
-    font-size: 14px !important;
+    font-size: 12px !important;
 }
 
 .tabla{
@@ -37,7 +70,7 @@ body{
 }
 
 button{
-    font-size: 14px !important;
+    font-size: 10px !important;
 }
 
 .titulo{
@@ -68,7 +101,12 @@ button{
 }
 
 .bg-danger{
-    background-color: rgb(26, 151, 93) !important;
+    background-color: rgb(0, 36, 19) !important;
+
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(206, 255, 232) !important;
 }
 
 
