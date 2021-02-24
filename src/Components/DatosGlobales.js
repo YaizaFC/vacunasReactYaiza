@@ -128,8 +128,6 @@ function Datos_globales() {
                         </tr>
                     </tbody>
                 </table>
-
-
             </div>
             <div>
                 <p class="inline info">Informe de actividad diario. GIV – Gestión Integral de vacunación frente al COVID-19 en España</p>
@@ -138,6 +136,8 @@ function Datos_globales() {
             <hr class="pie"/>
             <p class="info2">Yaiza Fritis Calvo - Despliegue de Aplicaciones Web - 2020/21</p>
         </div>
+
+        //web: java -Dserver.port=$PORT -jar target/*.jar
 
     );
 

@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/estilos.css';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import axios from 'axios';
+import imagenes from '../assets/imagenes'
+
 //libreria para mejorar los alert   https://sweetalert.js.org/guides/
 //npm install sweetalert --save
 import swal from 'sweetalert';
@@ -17,11 +19,11 @@ function CRUD() {
   const [modalEliminar, setModalEliminar] = useState(false);
   const [frameworkSeleccionado, setFrameworkSeleccionado] = useState({
     id: '',
-    comunidadAutonoma:  '',
-    dosisPfizer:  '',
-    dosisModerna:  '',
-    dosisAdministradas:  '',
-    personasCompleta:  ''
+    comunidadAutonoma: '',
+    dosisPfizer: '',
+    dosisModerna: '',
+    dosisAdministradas: '',
+    personasCompleta: ''
     //ultimaVacuna:  ''
 
   });
@@ -68,7 +70,7 @@ function CRUD() {
       dosisAdministradas: frameworkSeleccionado.dosisAdministradas,
       personasCompleta: frameworkSeleccionado.personasCompleta
       //ultimaVacuna: frameworkSeleccionado.ultimaVacun
-      
+
     };
     console.log(vacuna);
 
@@ -144,10 +146,13 @@ function CRUD() {
 
   return (
     <div style={{ textAlign: 'center' }}>
+      <h1 class="titulo1 sepTop">Datos por CC.AA y tipo de vacuna</h1>
+      <img src={imagenes.img4} alt="imagen virus" class="imgVirus" ></img>
+      <hr/>
       <br />
       <button className="btn btn-success btnInsertar" onClick={() => abrirCerrarModalInsertar()}>Insertar</button>
       <br /><br />
-      <table className="table table-striped tabla">
+      <table className="table table-striped tabla tablaCrud">  
         <thead>
           <tr>
             <th>Comunidad Autónoma</th>
@@ -156,11 +161,10 @@ function CRUD() {
             <th><b>Dosis Entregadas Totales</b></th>
             <th><b>Dosis administradas</b></th>
             <th>Número de personas con pauta completa</th>
-            
-            <th>Acciones</th>
+            <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
           {console.log(data[0])}
           {data.map(framework => (
             <tr key={framework.id}>
@@ -170,7 +174,7 @@ function CRUD() {
               <td>{framework.dosisPfizer + framework.dosisModerna}</td>
               <td>{framework.dosisAdministradas}</td>
               <td>{framework.personasCompleta}</td>
-              
+
 
               <td>
                 <button className="btn btn-primary btnEditar" onClick={() => seleccionarFramework(framework, "Editar")}>Editar</button>
@@ -184,6 +188,12 @@ function CRUD() {
 
       </table>
 
+      <div class="sepTop">
+        <p class="inline info">Informe de actividad diario. GIV – Gestión Integral de vacunación frente al COVID-19 en España</p>
+        <img src={imagenes.img8} alt="Gobierno de españa - Ministerio de salud" class="right imgGobierno" />
+      </div>
+      <hr class="pie" />
+      <p class="info2">Yaiza Fritis Calvo - Despliegue de Aplicaciones Web - 2020/21</p>
 
       <Modal isOpen={modalInsertar}>
         <ModalHeader>Insertar Datos de vacunas por Comunidad Autónoma</ModalHeader>
@@ -223,25 +233,25 @@ function CRUD() {
         <ModalHeader>Editar Vacunas: {frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma}</ModalHeader>
         <ModalBody>
           <div className="form-group">
-          <label>Comunidad Autónoma: </label>
+            <label>Comunidad Autónoma: </label>
             <br />
-            <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma}/>
+            <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma} />
             <br />
             <label>Dosis Entregadas - Pfizer</label>
             <br />
-            <input type="text" className="form-control" name="dosisPfizer" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisPfizer}/>
+            <input type="text" className="form-control" name="dosisPfizer" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisPfizer} />
             <br />
             <label>Dosis Entregadas - Moderna</label>
             <br />
-            <input type="text" className="form-control" name="dosisModerna" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisModerna}/>
+            <input type="text" className="form-control" name="dosisModerna" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisModerna} />
             <br />
             <label>Dosis Administradas</label>
             <br />
-            <input type="text" className="form-control" name="dosisAdministradas" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisAdministradas}/>
+            <input type="text" className="form-control" name="dosisAdministradas" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.dosisAdministradas} />
             <br />
             <label>Número de personas con pauta completa</label>
             <br />
-            <input type="text" className="form-control" name="personasCompleta" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.personasCompleta}/>
+            <input type="text" className="form-control" name="personasCompleta" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.personasCompleta} />
             <br />
 
           </div>
