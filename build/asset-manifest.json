@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e6d3f71a.chunk.css",
+    "main.js": "/static/js/main.79a22d07.chunk.js",
+    "main.js.map": "/static/js/main.79a22d07.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.32b585e6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.32b585e6.js.map",
+    "static/css/2.37c27f5c.chunk.css": "/static/css/2.37c27f5c.chunk.css",
+    "static/js/2.e54d5d79.chunk.js": "/static/js/2.e54d5d79.chunk.js",
+    "static/js/2.e54d5d79.chunk.js.map": "/static/js/2.e54d5d79.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a2c21dfe8970b1e06bdc4107adf1958c.js": "/precache-manifest.a2c21dfe8970b1e06bdc4107adf1958c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.37c27f5c.chunk.css.map": "/static/css/2.37c27f5c.chunk.css.map",
+    "static/css/main.e6d3f71a.chunk.css.map": "/static/css/main.e6d3f71a.chunk.css.map",
+    "static/js/2.e54d5d79.chunk.js.LICENSE": "/static/js/2.e54d5d79.chunk.js.LICENSE",
+    "static/media/ccaa.png": "/static/media/ccaa.426338c0.png",
+    "static/media/gobSalud.png": "/static/media/gobSalud.7e026628.png",
+    "static/media/persona.png": "/static/media/persona.0dfb6759.png",
+    "static/media/usuarios.png": "/static/media/usuarios.a4d1530b.png",
+    "static/media/vacuna_covid.png": "/static/media/vacuna_covid.b2bfab14.png",
+    "static/media/vacunacion.jpg": "/static/media/vacunacion.b589fa54.jpg",
+    "static/media/virus.png": "/static/media/virus.7242f80c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32b585e6.js",
+    "static/css/2.37c27f5c.chunk.css",
+    "static/js/2.e54d5d79.chunk.js",
+    "static/css/main.e6d3f71a.chunk.css",
+    "static/js/main.79a22d07.chunk.js"
+  ]
+}
