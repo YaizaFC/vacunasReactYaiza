@@ -177,7 +177,7 @@ function CRUD() {
 
               <td>
                 <button className="btn btn-primary btnEditar" onClick={() => seleccionarFramework(framework, "Editar")}>Editar</button>
-                <button className="btn btn-danger btnEliminar" onClick={() => seleccionarFramework(framework, "Eliminar")}>Eliminar</button>
+                <button className="btn btn-success btnEliminar" onClick={() => seleccionarFramework(framework, "Eliminar")}>Eliminar</button>
               </td>
             </tr>
           ))}
@@ -197,7 +197,7 @@ function CRUD() {
       <Modal isOpen={modalInsertar}>
         <ModalHeader>Insertar Datos de vacunas por Comunidad Autónoma</ModalHeader>
         <ModalBody>
-          <div className="form-group">
+          <div className="form-group modalMio">
             <label>Comunidad Autónoma: </label>
             <br />
             <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} />
@@ -231,7 +231,7 @@ function CRUD() {
       <Modal isOpen={modalEditar}>
         <ModalHeader>Editar Vacunas: {frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma}</ModalHeader>
         <ModalBody>
-          <div className="form-group">
+          <div className="form-group modalMio">
             <label>Comunidad Autónoma: </label>
             <br />
             <input type="text" className="form-control" name="comunidadAutonoma" onChange={handleChange} value={frameworkSeleccionado && frameworkSeleccionado.comunidadAutonoma} />

@@ -23,6 +23,10 @@ body{
     color: white !important;
 }
 
+.modalMio{
+    font-size: 12px !important;
+}
+
 .hrHome{
     border-color: white;
     width: 800px;
@@ -43,7 +47,7 @@ body{
 }
 
 .datos{
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 .noDatos{
@@ -63,6 +67,20 @@ body{
     margin: auto !important;
     padding: 5px !important;
     font-size: 12px !important;
+}
+
+.bg-home h1{
+    font-size: 36px;
+    margin-top: 20px !important;
+}
+
+.bg-home h3{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.bg-home p{
+    font-size: 16px;
 }
 
 .tabla{
